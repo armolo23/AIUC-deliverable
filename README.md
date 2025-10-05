@@ -237,7 +237,6 @@ Open `cx-leader-dashboard.html` for executive summary and interactive visualizat
 ### What This Means for You
 - **97.4% Protected** from Air Canada-style incidents
 - **19.2% Safer** than your best competitor
-- **$150K Annual Risk Mitigation** (based on incident prevention)
 - **31% Reduction** in customer complaints
 
 ---

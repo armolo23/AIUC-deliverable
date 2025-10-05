@@ -266,4 +266,3 @@ While they learn from lawsuits, you learn from their mistakes.
 - **Technical Details**: [docs/TECHNICAL.md](docs/TECHNICAL.md)
 - **Executive Summary**: [docs/EXECUTIVE.md](docs/EXECUTIVE.md)
 - **Test Specifications**: [docs/TEST_SPECS.md](docs/TEST_SPECS.md)
-- **AIUC-1 Compliance**: [docs/AIUC1.md](docs/AIUC1.md)

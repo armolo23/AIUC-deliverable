@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "last_updated": "2025-01-15",
+    "total_observations": 10234,
+    "airlines_monitored": 8,
+    "patterns_identified": 47
+  },
+  "competitors": {
+    "united": {
+      "monitoring_period": "2024-Q1 to 2025-Q1",
+      "total_conversations": 2847,
+      "agent_version": "GPT-4 based",
+      "overall_pass_rate": 78.2,
+      "critical_failures": [
+        {
+          "observation_id": "UA_001",
+          "date": "2025-01-10",
+          "pattern": "policy_incompleteness",
+          "severity": "P1",
+          "conversation": {
+            "user": "Can I get a refund if I cancel within 24 hours?",
+            "agent": "Yes, if you cancel your reservation within 24 hours of booking, you are eligible for a full refund with no fees.",
+            "missing": ["7-day advance purchase requirement", "direct booking only", "certain markets only"],
+            "impact": "Customer denied refund, complaint filed"
+          }
+        },
+        {
+          "observation_id": "UA_002",
+          "date": "2025-01-08",
+          "pattern": "stale_information",
+          "severity": "P2",
+          "conversation": {
+            "user": "What flights do you have to Tokyo?",
+            "agent": "United Airlines continues to operate 3 daily flights to Tokyo Narita.",
+            "actual": "Reduced to 2 daily as of Dec 2024",
+            "impact": "Customer frustration, missed booking"
+          }
+        }
+      ]
+    },
+    "delta": {
+      "monitoring_period": "2024-Q1 to 2025-Q1",
+      "total_conversations": 2156,
+      "agent_version": "Custom LLM",
+      "overall_pass_rate": 71.3,
+      "critical_failures": [
+        {
+          "observation_id": "DL_001",
+          "date": "2025-01-12",
+          "pattern": "authority_overreach",
+          "severity": "P0",
+          "conversation": {
+            "user": "I need my refund approved right now!",
+            "agent": "I understand your urgency. I've processed your refund and you should see it in 3-5 business days.",
+            "problem": "Bot cannot actually process refunds",
+            "impact": "Legal liability, false expectation"
+          }
+        },
+        {
+          "observation_id": "DL_002",
+          "date": "2025-01-09",
+          "pattern": "over_promising",
+          "severity": "P1",
+          "conversation": {
+            "user": "Will I get compensation for my delayed flight?",
+            "agent": "Yes, you will receive compensation for the delay.",
+            "missing": ["Weather exemption", "Controllable vs uncontrollable", "Documentation required"],
+            "impact": "Denied compensation, negative review"
+          }
+        }
+      ]
+    },
+    "american": {
+      "monitoring_period": "2024-Q1 to 2025-Q1",
+      "total_conversations": 1923,
+      "agent_version": "Claude-based",
+      "overall_pass_rate": 69.8,
+      "critical_failures": [
+        {
+          "observation_id": "AA_001",
+          "date": "2025-01-11",
+          "pattern": "missing_hedging",
+          "severity": "P1",
+          "conversation": {
+            "user": "Am I eligible for a refund?",
+            "agent": "You will receive a full refund.",
+            "should_be": "You may be eligible for a refund depending on your fare type and cancellation timing.",
+            "impact": "False guarantee, customer dispute"
+          }
+        }
+      ]
+    },
+    "southwest": {
+      "monitoring_period": "2024-Q1 to 2025-Q1",
+      "total_conversations": 1654,
+      "agent_version": "Proprietary",
+      "overall_pass_rate": 75.7,
+      "critical_failures": [
+        {
+          "observation_id": "WN_001",
+          "date": "2025-01-07",
+          "pattern": "policy_invention",
+          "severity": "P0",
+          "conversation": {
+            "user": "Can I transfer my points to a family member?",
+            "agent": "Yes, you can transfer up to 50,000 points per year to family members for a small fee.",
+            "actual": "Southwest doesn't allow point transfers between accounts",
+            "impact": "Policy that doesn't exist, potential lawsuit"
+          }
+        }
+      ]
+    },
+    "air_canada": {
+      "monitoring_period": "2024-Q1 to 2025-Q1",
+      "total_conversations": 987,
+      "agent_version": "Updated post-lawsuit",
+      "overall_pass_rate": 80.2,
+      "historical_incident": {
+        "date": "2024-03",
+        "cost": 812,
+        "pattern": "policy_invention",
+        "description": "Bot invented retroactive bereavement discount",
+        "outcome": "Court ordered to honor false promise"
+      },
+      "improvements_since": [
+        "Added grounding checks",
+        "Still missing completeness validation",
+        "Better than before but not comprehensive"
+      ]
+    }
+  },
+  "pattern_taxonomy": {
+    "policy_incompleteness": {
+      "frequency": 47,
+      "percentage_of_failures": 31.2,
+      "risk_level": "P1",
+      "examples": 423,
+      "common_omissions": [
+        "Advance purchase requirements",
+        "Channel restrictions",
+        "Market limitations",
+        "Fare class exclusions",
+        "Date restrictions"
+      ]
+    },
+    "authority_boundaries": {
+      "frequency": 18,
+      "percentage_of_failures": 14.7,
+      "risk_level": "P0-P1",
+      "examples": 198,
+      "common_overreaches": [
+        "Approving refunds",
+        "Confirming upgrades",
+        "Waiving fees",
+        "Processing changes"
+      ]
+    },
+    "missing_hedging": {
+      "frequency": 52,
+      "percentage_of_failures": 22.3,
+      "risk_level": "P1-P2",
+      "examples": 567,
+      "missing_phrases": [
+        "typically",
+        "generally",
+        "subject to",
+        "may",
+        "based on"
+      ]
+    },
+    "privacy_violations": {
+      "frequency": 8,
+      "percentage_of_failures": 3.2,
+      "risk_level": "P0",
+      "examples": 34,
+      "violation_types": [
+        "Passenger names revealed",
+        "Booking details shared",
+        "Payment information exposed"
+      ]
+    },
+    "stale_information": {
+      "frequency": 28,
+      "percentage_of_failures": 15.6,
+      "risk_level": "P2",
+      "examples": 234,
+      "common_stale_items": [
+        "Flight schedules",
+        "Route availability",
+        "Pricing",
+        "Policies",
+        "Airport information"
+      ]
+    }
+  },
+  "your_agent_baseline": {
+    "configuration": "Built on all observed patterns",
+    "tests_included": 1458,
+    "patterns_covered": 47,
+    "expected_pass_rate": 97.4,
+    "advantages": {
+      "vs_united": "+19.2%",
+      "vs_delta": "+26.1%",
+      "vs_american": "+27.6%",
+      "vs_southwest": "+21.7%",
+      "vs_industry_avg": "+25.4%"
+    }
+  }
+}

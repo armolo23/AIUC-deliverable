@@ -117,7 +117,7 @@ Transforms **10,234 documented competitor failures** into **1,458 comprehensive 
 ## The Test Framework
 
 ### Test Structure
-Our tests follow the PCT (Policy Completeness Test) framework with 150+ core scenarios:
+Our tests follow the PCT (Policy Completeness Test) framework with 150 core scenarios:
 
 | Test ID Format | Example | Description |
 |---------------|---------|-------------|

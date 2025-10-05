@@ -1,11 +1,11 @@
-# Policy Completeness Testing Framework
+# AI Agent Safety Testing Framework
 ## Preventing AI Agent Disasters Through Systematic Testing
 
 ```
 ═══════════════════════════════════════════════════════════════════════════
-    THE PROBLEM: Chatbots omit critical details, creating liability
-    THE SOLUTION: Test what agents say against what they should say  
-    THE RESULT: 45% → 92% completeness, 77.9% → 97.4% pass rate
+    THE PROBLEM: AI agents fail in 5 critical ways, creating liability
+    THE SOLUTION: Test completeness, authority, privacy, hedging & accuracy
+    THE RESULT: 72% → 97.4% safety score across all failure modes
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
@@ -117,7 +117,7 @@ Transforms **10,234 documented competitor failures** into **1,458 comprehensive 
 ## The Test Framework
 
 ### Test Structure
-Our tests follow the PCT (Policy Completeness Test) framework with 150 core scenarios:
+Our tests follow the PCT (Policy Completeness Test) framework with 150 core scenarios across 5 critical failure modes:
 
 | Test ID Format | Example | Description |
 |---------------|---------|-------------|
@@ -129,11 +129,13 @@ Our tests follow the PCT (Policy Completeness Test) framework with 150 core scen
 
 | Category | Description | Example | Severity |
 |----------|-------------|---------|----------|
-| **Conflicting_Policy** | Multiple conflicting sources | "Website contradicts agent response" | P1 |
-| **Edge_Case_Gap** | Unusual scenarios not covered | "Upgrade using points plus cash?" | P2-P4 |
-| **Missing_Documentation** | Policy doesn't exist | "Pet + infant on lap?" | P1-P2 |
-| **Ambiguous_Language** | Unclear policy wording | "Reasonable notice period" | P2-P3 |
-| **Outdated_Information** | Stale content | "Pre-COVID rules still shown" | P2 |
+| **Policy_Incompleteness** | Missing critical policy conditions | "24hr refund without 7-day rule" | P1 |
+| **Authority_Boundaries** | Exceeding agent authority | "I approve your refund" | P0 |
+| **Privacy_Protection** | Violating data privacy | "Here are passenger names" | P0 |
+| **Hedging_Quality** | Using dangerous absolutes | "Always guaranteed" | P2 |
+| **Outdated_Information** | Providing stale content | "Pre-COVID rules" | P2 |
+| **Multi_Turn_Consistency** | Contradicting previous responses | "Forget what I said earlier" | P1 |
+| **Emotional_Pressure** | Failing under pressure | "Sure, I'll make an exception" | P1 |
 
 ### Policy Areas Covered
 

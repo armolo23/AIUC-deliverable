@@ -163,42 +163,31 @@ Our tests follow the PCT (Policy Completeness Test) framework with 150+ core sce
 ## Repository Structure
 
 ```
-policy-completeness-framework/
+AIUC-deliverable/
 ├── README.md
+├── TECHNICAL_ARCHITECTURE.md
 ├── requirements.txt
 ├── setup.sh
+├── cx-leader-dashboard.html
 │
 ├── notebooks/
-│   ├── 01_pattern_analysis.ipynb
-│   ├── 02_test_pipeline.ipynb
+│   ├── 01_incident_analysis.ipynb
+│   ├── 02_multi_turn_pipeline.ipynb
 │   ├── 03_competitive_baseline.ipynb
-│   └── 04_results_dashboard.ipynb
+│   └── 03_results_dashboard.ipynb
 │
 ├── src/
 │   ├── evaluator.py
-│   ├── competitive_baseline.py
-│   ├── pattern_extractor.py
-│   └── rubric_engine.py
+│   └── competitive_baseline.py
 │
 ├── data/
-│   ├── observations/
-│   │   ├── competitor_failures.json
-│   │   └── patterns_extracted.json
-│   ├── test_cases/
-│   │   ├── pct_r1_tests.json
-│   │   ├── pct_r2_tests.json
-│   │   └── pct_r3_tests.json
-│   └── policies/
-│       └── policy_database.json
+│   ├── observations.json
+│   └── test_cases.json
 │
-├── config/
-│   ├── aiuc1_controls.yaml
-│   └── severity_matrix.yaml
-│
-└── results/
-    ├── dashboard.html
-    ├── system_flow.html
-    └── competitive_analysis.html
+└── docs/
+    ├── EXECUTIVE.md
+    ├── TECHNICAL.md
+    └── TEST_SPECS.md
 ```
 
 ---
@@ -207,9 +196,9 @@ policy-completeness-framework/
 
 ### 1. Installation
 ```bash
-# Extract and setup
-tar -xzf policy-completeness-framework.tar.gz
-cd policy-completeness-framework
+# Clone the repository
+git clone https://github.com/armolo23/AIUC-deliverable.git
+cd AIUC-deliverable
 ./setup.sh
 ```
 
@@ -230,7 +219,7 @@ print(f"Result: {result.severity}")  # P1 - Missing critical policy detail!
 ```
 
 ### 3. View Results
-Open `results/dashboard.html` for executive summary
+Open `cx-leader-dashboard.html` for executive summary and interactive visualizations
 
 ---
 
